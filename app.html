@@ -2,8 +2,10 @@
 <html lang="en" class="h-100">
 
 <!--=== Head Section ===-->
+
 <head>
-    <title>App Name: A Coding Project by Shawn Smith</title>
+
+    <title>TacoCat: A Coding Project by Shawn Smith</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,94 +22,130 @@
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
     <!--Favicon-->
-    <link rel="icon" type="image/png" href="./img/favicon-32x32.png">
-
-   </style>
+    <link rel="icon" type="image/png" href="./img/Taco.png">
+    
 </head>
 
 <!--=== Body Section ===-->
+
 <body class="d-flex flex-column h-100">
 
-<!--=== Nav Section ===-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-        
-        <a class="navbar-brand" href="#"><img src="img/Shawn Smith (opaque).svg" class="d-inline-block align-text-top" alt="Shawn Smith's Logo" width="30" height="24"> APP NAME</a>
+    <!--=== Nav Section ===-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand" href="#"><img src="img/Taco.png" class="d-inline-block align-text-top"
+                    alt="Shawn Smith's Logo" width="30" height="24"> TacoCat</a>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!--Nav Items-->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="app.html">The App</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="code.html">The Code</a>
-                </li>                
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://github.com/ShawnLSmith">GIT Repo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://shawnsmith-portfolio.netlify.app/">About</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                    <!--Nav Items-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="app.html">The App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="code.html">The Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://github.com/ShawnLSmith">GIT Repo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://shawnsmith-portfolio.netlify.app/">About</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!--=== Main Section ===-->
-<main class="flex-shrink-0">
-    <div class="container mt-5">
-
-    </div>
-</main>
-
- <!--=== Footer Section ===-->
- <footer class="footer mt-auto py-3 sticky-footer">
-    <div class="container-fluid">
-
-        <div class="row row-cols-1 row-cols-lg-3 gy-2">
-
-            <!--Copyright-->
-            <div class="col order-last order-lg-first text-light">
-                <div><Span class="text-muted">&copy;2022</Span> Shawn Smith | shawn@rsatechnologyservices.com</div>
+    <!--=== Main Section ===-->
+    <main class="flex-shrink-0">
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">
+                        TacoCat: A Coding Project
+                    </h1>
+                    <h4 class="lead pb-3">
+                        Taco Cat is a palindrome. A Palindrome is a word, phrase or sequence that reads the same
+                        backward as forward. Write a program that checks if the phrase entered is a palindrome.
+                    </h4>
+                </div>
+                <div class="col">
+                    <h5 class="border-1 border-bottom border-danger">Enter a Phrase or Word to check.</h5>
+                    <form class="row gx-3 gy-2">
+                        <div class="col">
+                            <input id="userString" type="text" class="form-control" placeholder="Enter a String"
+                                aria-label="Enter A String">
+                        </div>
+                        <div class="col-12">
+                            <button type="button" id="alertHeader"  class="btn btn-danger">Check It!</button>
+                        </div>
+                        <div class="alert alert-danger mt-5 invisible fade show" id="alert" role="alert">
+                            <h4 id="alertHeader" class="alert-heading">Well Done!</h4>
+                            <hr>
+                            <p class="mb-0" id="msg">
+                                <!--Insert a Message Here-->
+                            </p>
+                        </div>
+                    </form>
+                </div>
             </div>
+        </div>
+    </main>
 
-            <!--Logo-->
-            <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                <img src="./img/Shawn Smith (opaque).svg" alt="Shawn Smith Logo" height="24">
-            </div>
+    <!--=== Footer Section ===-->
+    <footer class="footer mt-auto py-3 sticky-footer">
+        <div class="container-fluid">
 
-            <!--Social Icons-->
-            <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
-                <div class="row">
-                    <div class="col social"><a href="https://linkedin.com/in/shawn-s-364bbb21a" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
-                        <div class="col social"><a href="https://github.com/ShawnLSmith" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                    <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
+            <div class="row row-cols-1 row-cols-lg-3 gy-2">
+
+                <!--Copyright-->
+                <div class="col order-last order-lg-first text-light">
+                    <div><Span class="text-muted">&copy;2022</Span> Shawn Smith | shawn@rsatechnologyservices.com</div>
+                </div>
+
+                <!--Logo-->
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
+                    <img src="./img/Shawn Smith (opaque).svg" alt="Shawn Smith Logo" height="24">
+                </div>
+
+                <!--Social Icons-->
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
+                    <div class="row">
+                        <div class="col social"><a href="https://linkedin.com/in/shawn-s-364bbb21a" target="_blank"><i
+                                    class="fab fa-linkedin fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://github.com/ShawnLSmith" target="_blank"><i
+                                    class="fab fa-github fa-2x"></i></a></div>
+                        <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
                     <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></div> -->
-                </div>                    
+                    </div>
+                </div>
+
             </div>
-
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!--=== Bootstrap JS Section===-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-</script>
+    <!--=== Bootstrap JS Section===-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
 
-<!--=== Custom JS Section ===-->
-<script src="./js/site.js"></script>
+     <!--=== Custom JS Section ===-->
+     <script src="./js/site.js"></script>
+     
+     <script> 
+     document.getElementById("alertHeader").addEventListener("click",getValue); 
+     </script>
 
-</body>
+</body>   
 
 </html>
