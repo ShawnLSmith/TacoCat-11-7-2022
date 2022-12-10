@@ -2,7 +2,8 @@
 <html lang="en" class="h-100">
 
 <!--=== Head Section ===-->
-<head>                                             
+
+<head>
     <title>TacoCat: A Coding Project by Shawn Smith</title>
 
     <!-- Required meta tags -->
@@ -23,109 +24,174 @@
     <!--Favicon-->
     <link rel="icon" type="image/png" href="./img/Taco.png">
 
-   </style>
+    </style>
 </head>
 
 <!--=== Body Section ===-->
+
 <body class="d-flex flex-column h-100">
 
-<!--=== Nav Section ===-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-        
-        <a class="navbar-brand" href="#"><img src="img/Shawn Smith (opaque).svg" class="d-inline-block align-text-top" alt="Shawn Smith's Logo" width="30" height="24"> APP NAME</a>
+    <!--=== Nav Section ===-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand" href="#"><img src="img/Taco.png" class="d-inline-block align-text-top"
+                    alt="Shawn Smith's Logo" width="30" height="24">TacoCat</a>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!--Nav Items-->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="app.html">The App</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
-                </li>                
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://github.com/ShawnLSmith">GIT Repo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="https://shawnsmith-portfolio.netlify.app/">About</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                    <!--Nav Items-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="app.html">The App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://github.com/ShawnLSmith">GIT Repo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="https://shawnsmith-portfolio.netlify.app/">About</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!--=== Main Section ===-->
-<main class="flex-shrink-0">
-    <div class="container py-5 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
-            <div class="col-lg-8">
-                <pre class="line-numbers"><code class="language-javascript">
-                    //Call HelloWorld
-                    function HelloWorld()
-                    {
-                        alert("Hello World");
+    <!--=== Main Section ===-->
+    <main class="flex-shrink-0">
+        <div class="container py-5 px-5 mt-5">
+            <h2 class="border-1 border-bottom border-dark">The Code for Taco Cat</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
+                <div class="col-lg-8">
+                    <pre class="line-numbers"><code class="language-javascript">
+                    //Get our user's input
+                    function getValue(){
+                    
+                        //make sure the alert is invisible
+                        document.getElementById("alert").classList.add("invisible");
+                    
+                        //get user string for the page
+                        let userString = document.getElementById("userString").value;
+                    
+                        //check for a Palindrome 
+                        let returnObj = checkForPalindrome(userString);
+                    
+                        //display out message to the screen
+                        displayMessage(returnObj);
+                    
+                    }
+                    
+                    //Check if string is a Palindrome.
+                    function checkForPalindrome(userString) {
+                    
+                        //To Lower Case
+                        userString = userString.toLowerCase();
+                    
+                        //remove spaces and special characters.
+                        let regex = /[^a-z0-9]/gi;
+                        userString = userString.replace(regex,"");
+                    
+                        let revString = [];
+                        let returnObj = {};
+                    
+                        for (let index = userString.length - 1; index >= 0; index--) {
+                            revString += userString[index];        
+                        }
+                    
+                        if (revString == userString) {
+                            returnObj.msg = "Well Done! You entered a Palindrome!"
+                        }
+                        else{
+                            returnObj.msg = "Sorry! You did not enter a Palindrome!"
+                        }
+                    
+                        returnObj.reversed = revString;
+                    
+                        return returnObj;
+                    }
+                    
+                    // Display a message to the string.
+                    function displayMessage(returnObj) {
+                    
+                        document.getElementById("alertHeader").innerHTML = returnObj.msg;
+                        document.getElementById("msg").innerHTML = `Your phrase reversed is: ${returnObj.reversed} `;
+                        document.getElementById("alert").classList.remove("invisible");
                     }
                 </code>
                 </pre>
-            </div>
-            <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>The Code is structured in three function(s).</p>
+                    <h5>Taco Cat</h5>
+                    <p>Taco Cat is a palindrome. A Palindrome is a word, phrase or sequence that reads the same backward
+                        as forward.</p>
+
+                    <p>
+                    <h6>Function 1: GetValue();</h6> The Get Value function is used to gather the data entered into textbox on "The App" page. Then take that data from the element "userString" within the button class and then pass "userString" through another class of "returnObj", check for validation and then pass it to "displayMessage".
+                    </p>
+
+                    <p>
+                    <h6>Function 2: checkForPalindrome();</h6> The CheckForPalindrome function takes the input assigned into the userString variable and modifies it to check for certain conditions. Then using a for loop we check the spaces of the entry and counting backwards.
+                    </p>
+
+                    <p>
+                    <h6>Function 3: displayMessage();</h6> The displayMessage function uses a few get statements to grab the data from certain id elements in the HTML and the textbox and then stores that data in "returnObj" for use in the other functions.
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
- <!--=== Footer Section ===-->
- <footer class="footer mt-auto py-3 sticky-footer">
-    <div class="container-fluid">
+    <!--=== Footer Section ===-->
+    <footer class="footer mt-auto py-3 sticky-footer">
+        <div class="container-fluid">
 
-        <div class="row row-cols-1 row-cols-lg-3 gy-2">
+            <div class="row row-cols-1 row-cols-lg-3 gy-2">
 
-            <!--Copyright-->
-            <div class="col order-last order-lg-first text-light">
-                <div><Span class="text-muted">&copy;2022</Span> Shawn Smith | shawn@rsatechnologyservices.com</div>
-            </div>
+                <!--Copyright-->
+                <div class="col order-last order-lg-first text-light">
+                    <div><Span class="text-muted">&copy;2022</Span> Shawn Smith | shawn@rsatechnologyservices.com</div>
+                </div>
 
-            <!--Logo-->
-            <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                <img src="./img/Shawn Smith (opaque).svg" alt="Shawn Smith Logo" height="24">
-            </div>
+                <!--Logo-->
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
+                    <img src="./img/Shawn Smith (opaque).svg" alt="Shawn Smith Logo" height="24">
+                </div>
 
-            <!--Social Icons-->
-            <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
-                <div class="row">
-                    <div class="col social"><a href="https://linkedin.com/in/shawn-s-364bbb21a" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
-                    <div class="col social"><a href="https://github.com/ShawnLSmith" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                    <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
+                <!--Social Icons-->
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
+                    <div class="row">
+                        <div class="col social"><a href="https://linkedin.com/in/shawn-s-364bbb21a" target="_blank"><i
+                                    class="fab fa-linkedin fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://github.com/ShawnLSmith" target="_blank"><i
+                                    class="fab fa-github fa-2x"></i></a></div>
+                        <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
                     <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></div> -->
-                </div>                    
+                    </div>
+                </div>
+
             </div>
-
         </div>
-    </div>
-</footer>
+    </footer>
 
-<!--=== Bootstrap JS Section ===-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-</script>
+    <!--=== Bootstrap JS Section ===-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
 
-<!--=== JavaScript Scripts Section ===-->
-<script src="./js/site.js"></script>
-<script src="./js/prism.js"></script>
+    <!--=== JavaScript Scripts Section ===-->
+    <script src="./js/site.js"></script>
+    <script src="./js/prism.js"></script>
     <script>
         Prism.plugins.NormalizeWhitespace.setDefaults({
             'remove-trailing': true,

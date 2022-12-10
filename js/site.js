@@ -1,4 +1,4 @@
-//Get our user input
+//Get our user's input
 function getValue(){
 
     //make sure the alert is invisible
